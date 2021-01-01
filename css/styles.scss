@@ -1,0 +1,153 @@
+@import "./base-styles";
+
+//variables
+$main-bg: hsl(210, 46%, 95%);
+$card-one-bg: hsl(263, 55%, 52%);
+$card-two-bg: hsl(217, 19%, 35%);
+$card-three-five-bg: hsl(0, 0%, 100%);
+$card-four-bg: hsl(219, 29%, 14%);
+
+.landing {
+    min-height: 100vh;
+    background-color: $main-bg;
+    padding: 4rem 1.5rem;
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1.5rem;
+
+        @media (min-width: 880px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 1080px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media (min-width: 1280px) {
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+
+    .card {
+        padding: 2rem;
+        border-radius: .5rem;
+
+        &.one {
+            background-color: $card-one-bg;
+            background-image: url("/images/bg-pattern-quotation.svg");
+            background-position-x: 90%;
+            background-repeat: no-repeat;
+
+            .author-image {
+                border: 2px solid rgba(255, 255, 255, 0.5);
+            }
+
+            @media (min-width: 880px) {
+                background-position-x: 80%;
+            }
+
+            @media (min-width: 1080px) {
+                grid-column: span 2;
+                order: 1;
+            }
+        }
+
+        &.two {
+            background-color: $card-two-bg;
+
+            @media (min-width: 1080px) {
+                order: 2;
+            }
+        }
+
+        &.three, &.five {
+            background-color: $card-three-five-bg;
+            box-shadow: 5px 12px 25px 0 rgb(211, 218, 226);
+
+            .author, .testimonials {
+                color: hsl(217, 19%, 35%);
+            }
+        }
+
+        &.three {
+            @media (min-width: 1080px) {
+                order: 4;
+            }
+        }
+
+        &.four {
+            background-color: $card-four-bg;
+
+            .author-image {
+                border: 2px solid hsl(263, 55%, 52%);
+            }
+
+            @media (min-width: 1080px) {
+                order: 5;
+                grid-column: span 2;
+            }
+        }
+
+        &.five {
+            @media (min-width: 880px) {
+                grid-column: span 2;
+            }
+
+            @media (min-width: 1080px) {
+                order: 3;
+                grid-column: inherit;
+                grid-row: span 2;
+            }
+        }
+
+        .author {
+            color: white;
+            display: flex;
+            align-items: center;
+
+            .author-image {
+                border-radius: 50%;
+                margin-right: 1.2rem;
+                width: 38px;
+            }
+
+            .details .name {
+                font-weight: 600;
+                font-size: .9rem;
+            }
+
+            .details p:last-child {
+                opacity: .5;
+                font-size: .8rem;
+            }
+        }
+
+        .testimonials {
+            color: white;
+
+            .highlight {
+                font-size: 1.1rem;
+                margin: 1.5rem 0;
+            }
+
+            .full-text {
+                font-size: .8rem;
+                line-height: 1.3rem;
+                opacity: .7;
+            }
+        }
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    padding: 1rem 0;
+
+    a {
+        color: hsl(228, 45%, 44%);
+    }
+}
